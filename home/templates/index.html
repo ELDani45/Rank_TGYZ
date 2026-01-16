@@ -2,10 +2,17 @@
 <!---->
 {% load static %}
 <!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+{% endblock %}
+<!---->
 {% block content %}
 
 <main>
-  <h1>Index</h1>
+  <h1 class="title">Piedra, papel o tijera</h1>
+  <main>
+    <div class="box-game">Soon...</div>
+  </main>
 </main>
 
 {% endblock %}
