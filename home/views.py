@@ -1,5 +1,5 @@
 # from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView  # Lista basada en clase
 from home.forms import SignIn, Registrate
 # Importamos la herramineta { VIEW } para indicarle a django que vamos a hacer una calse que sera una vista.
 

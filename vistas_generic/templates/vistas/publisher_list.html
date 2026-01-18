@@ -1,0 +1,23 @@
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+{% endblock %}
+<!---->
+{% block content %}
+<main class="#">
+  <h1>Publishers</h1>
+  <div class="main-publisher">
+    {% for publisher in object_list %}
+    <div class="box-publisher">
+      <p>{{ publisher.name }}</p>
+      <p>{{ publisher.address }}</p>
+      <p>{{ publisher.city }}</p>
+      <p>{{ publisher.state_province }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}
