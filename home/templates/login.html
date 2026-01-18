@@ -10,7 +10,8 @@
 
 <main>
   <!---->
-  <form class="forulario" method="post">
+  <h2>Iniciar sesión</h2>
+  <form class="forulario" method="POST">
     {% csrf_token %}
     <!-- Input Username  -->
     <div class="box-username">
@@ -26,6 +27,7 @@
       <!---->
       {{ signin.password }}
     </div>
+    <button class="boton-sumit">Guardar</button>
   </form>
 </main>
 <!---->

@@ -1,0 +1,30 @@
+{% extends 'layouts/navbar.html' %}
+<!---->
+{% load static %}
+<!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+{% endblock %}
+<!---->
+{% block content %}
+<main>
+  <h1>Registrarse</h1>
+  <div>
+    <form class="forulario" method="POST">
+      {% csrf_token %}
+      <!---->
+      <div>
+        <label>Nombre de usuario</label> <br />
+        {{ registration.name }}
+      </div>
+      <!---->
+      <div>
+        <label>Contraseña</label> <br />
+        {{ registration.password }}
+      </div>
+      <!---->
+      <button class="boton-sumit">Guardar</button>
+    </form>
+  </div>
+</main>
+{% endblock %}

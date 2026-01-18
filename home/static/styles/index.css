@@ -9,16 +9,27 @@ label{
     margin-bottom: 5px;
 }
 main{
-    width: 100%;
-    display: block;
-    text-align: center;
-    align-items: center;
+    background-color: #202022;
+    color: whitesmoke;
+    font-family: Arial, sans-serif; /* Usar una fuente similar a la imagen */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
 }
 .forulario{
-    min-width: 100px;
-    min-height: 300px;
+    min-width: 300px;
+    min-height: 250px;
     background-color:black ;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 2px solid greenyellow;
 }
 .title{
     color: yellow;
@@ -34,4 +45,15 @@ main{
     border-radius: 8px;
     color: white;
     font-size: 20px;
+}
+.boton-sumit{
+        color: rgb(60, 255, 60);
+    background-color: #202022;
+    border: 2px solid greenyellow;
+    list-style: none;
+    width: 100px;
+    margin-left: 100px;
+    margin-top: 10px;
+    padding: 6px;
+    border-radius: 15px;
 }
