@@ -1,9 +1,37 @@
 body{
-    background-color: cadetblue;
+    background-color: #202022;
+}
+label{
+    color: rgb(60, 255, 60);
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+main{
+    width: 100%;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.forulario{
+    min-width: 100px;
+    min-height: 300px;
+    background-color:black ;
 }
 .title{
     color: yellow;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
     text-align: center;
+}
+.input{
+    width: 230px;
+    height: 30px;
+    background-color: #202022 ;
+    border: 2px solid greenyellow;
+    border-radius: 8px;
+    color: white;
+    font-size: 20px;
 }

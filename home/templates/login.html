@@ -2,8 +2,31 @@
 <!---->
 {% load static %}
 <!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static  'styles/index.css' %}" />
+{% endblock %}
+<!---->
 {% block content %}
 
-<main>{{ form }}</main>
+<main>
+  <!---->
+  <form class="forulario" method="post">
+    {% csrf_token %}
+    <!-- Input Username  -->
+    <div class="box-username">
+      <label>Nombre de usuario</label>
+      <br />
+      {{ signin.username }}
+    </div>
+
+    <!-- Input password -->
+    <div class="box-password">
+      <label>Contraseña</label>
+      <br />
+      <!---->
+      {{ signin.password }}
+    </div>
+  </form>
+</main>
 <!---->
 {% endblock %}
