@@ -5,5 +5,16 @@
 {% block content %}
 <main>
   <h1>Authors</h1>
+  <div>
+    <form method="POST">
+      {% csrf_token %}
+      <!-- Inicio del formulario -->
+      <div class="box-name">{{ form.name }}</div>
+
+      <div>
+        <button class="form-buttom">Guardar</button>
+      </div>
+    </form>
+  </div>
 </main>
 {% endblock %}
