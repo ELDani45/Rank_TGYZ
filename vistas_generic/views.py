@@ -1,8 +1,30 @@
 # from django.shortcuts import render
+# from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
-from vistas_generic.models import Publisher
+from django.views.generic.edit import CreateView
+from vistas_generic.models import Publisher, Author
+from vistas_generic.models import Book
+from django.urls import reverse_lazy
+from vistas_generic.forms import MakeAuthor
 
 
 class PublisherLIstview(ListView):
     model = Publisher
     template_name = 'vistas/publisher_list.html'
+    context_object_name = "my_favorite_publishers"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["book_list"] = Book.objects.all()
+        return context
+
+# c Cuando queremos crear un objeto, lo hacemos con la clase ' CreateView ' que viene por defecto en django
+
+
+class CreateAuthor(CreateView):
+    model = Author
+    form_class = MakeAuthor
+    template_name = 'authors.html'
+
+    # reverse_lazy se utiliza para que django sepa a donde tiene que redirigir despues de creado el objeto o instancia
+    success_url = reverse_lazy('autores')
