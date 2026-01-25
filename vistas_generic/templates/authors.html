@@ -2,14 +2,43 @@
 <!---->
 {% load static %}
 <!---->
+{% block css_extra %}
+<link rel="stylesheet" href="{% static 'styles/authors.css' %}" />
+{% endblock %}
+<!---->
 {% block content %}
 <main>
   <h1>Authors</h1>
   <div>
-    <form method="POST">
-      {% csrf_token %}
+    <!-- con ' enctype="multipart/form-data" ' hacemos que el formualrio pueda enviar archivos -->
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.non_field_errors }}
+      <!-- Este comando llama a los multiples errores que pueden surgir de nuestro formulario, estos errores son predeterminados de Django -->
       <!-- Inicio del formulario -->
-      <div class="box-name">{{ form.name }}</div>
+      <!-- Input nombre -->
+      <div class="box-name">
+        <label>Nombre de usuario</label>
+        {{ form.name }}
+      </div>
+      <div class="errorlist">{{ form.name.errors }}</div>
+      <!-- Input correo electronico -->
+      <div class="box-name">
+        <label>Correo electronico</label>
+        {{ form.email }}
+      </div>
+      <div class="errorlist">{{ form.email.errors }}</div>
+      <!-- Input description user -->
+      <div class="box-name">
+        <label>Descripción Usuario</label>
+        {{ form.salutation }}
+        <div class="errorlist">{{ form.salutation.errors }}</div>
+        <!-- Input Imagen Perfil -->
+      </div>
+      <div class="box-name">
+        <label>Que es esto?</label>
+        {{ form.headshot }}
+      </div>
+      <div class="errorlist">{{ form.headshot.errors }}</div>
 
       <div>
         <button class="form-buttom">Guardar</button>

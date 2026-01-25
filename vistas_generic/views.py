@@ -1,5 +1,5 @@
-# from django.shortcuts import render
 # from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from vistas_generic.models import Publisher, Author
@@ -23,8 +23,31 @@ class PublisherLIstview(ListView):
 
 class CreateAuthor(CreateView):
     model = Author
-    form_class = MakeAuthor
-    template_name = 'authors.html'
 
     # reverse_lazy se utiliza para que django sepa a donde tiene que redirigir despues de creado el objeto o instancia
     success_url = reverse_lazy('autores')
+
+    def get(self, request, *args, **kwargs):
+        if request.method == 'GET':
+            return render(request, "authors.html", {
+                'form': MakeAuthor
+            })
+
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            try:  # Aqui intentamos crear un ususario
+                # Aqui le enviamos los datos con ' request '
+                form = MakeAuthor(request.POST, request.FILES)
+                if form.is_valid():  # aqui validamos si los datos son validos
+                    form.save()  # Guardamos si los son
+                    # retornamos despuesaa otra vista
+                    return render(request, 'index.html')
+                else:
+                    # si no es correcto los datos, devolvemos al usuario a la vista principal y mostramos el error
+                    return render(request, "authors.html", {
+                        'form': form
+                    })
+            except ValueError:
+                return render(request, "authors.html", {
+                    'form': MakeAuthor
+                })

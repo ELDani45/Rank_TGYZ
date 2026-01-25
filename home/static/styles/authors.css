@@ -1,0 +1,14 @@
+.errorlist{
+    color: aliceblue;
+    
+}
+#id_headshot_error{
+    background-color: #202020;
+    padding: 0px;
+    margin: 0px;
+}
+#id_email_error{
+    background-color: #202020;
+    padding: 0px;
+    margin: 0px;
+}
